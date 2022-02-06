@@ -1,16 +1,16 @@
 import pandas as pd
 from input import *
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.linear_model import LogisticRegression
 
 data = pd.read_csv("user.csv")
 X = data.drop(columns=['out'])
 y = data['out']
 
-model = DecisionTreeClassifier()
+model = LogisticRegression()
 model.fit(X, y)
 predictions = model.predict([inputArr])
 predictions_proba = model.predict_proba([inputArr])
 
-print('Decision Tree Results:')
+print('Logistic Regression Results:')
 print(predictions)
 print(predictions_proba)
